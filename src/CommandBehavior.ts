@@ -44,7 +44,7 @@ export default class CommandBehavior {
     const behave = this.behaviors.get(str ?? "default") ?? this.behaviors.get("fail");
     console.log(behave);
     if (!behave) return;
-    let message = behave.message.default ?? "...";
+    let message = (behave.message ? behave.message.default : "...") ?? "...";
     for (const key in behave.message) {
       const condTest = itemHave.includes(key) || key.split(",").every(item => itemHave.includes(item));
       if (condTest) {

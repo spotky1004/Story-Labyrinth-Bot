@@ -27,7 +27,7 @@ export default class CommandBehavior {
         console.log(behave);
         if (!behave)
             return;
-        let message = (_c = behave.message.default) !== null && _c !== void 0 ? _c : "...";
+        let message = (_c = (behave.message ? behave.message.default : "...")) !== null && _c !== void 0 ? _c : "...";
         for (const key in behave.message) {
             const condTest = itemHave.includes(key) || key.split(",").every(item => itemHave.includes(item));
             if (condTest) {
